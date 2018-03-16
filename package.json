@@ -1,6 +1,6 @@
 {
   "name": "@korbiniankuhn/angular-http-observer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Track angular http requests and get notified about completion and timeouts.",
   "main": "index.ts",
   "scripts": {
