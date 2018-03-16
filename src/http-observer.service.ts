@@ -39,23 +39,17 @@ export class HttpObserverService {
   private requestGroups: Array<RequestGroupInterface> = [];
 
   constructor( @Inject(HTTP_OBSERVER_OPTIONS) config: any) {
-    Object.assign(config, {
-      whitelistedRoutes: null,
-      blacklistedRoutes: null,
-      delay: 200,
-      timeout: null
-    });
+    const requestGroups = config.requestGroups ? JSON.parse(JSON.stringify(config.requestGroups)) : [];
 
-    if (!config.requestGroups) {
-      config.requestGroups = [{ name: 'default' }];
-    }
+    requestGroups.push({ name: 'default' });
 
-    for (const group of config.requestGroups) {
+    for (const group of requestGroups) {
+      if (group.whitelistedRoutes === undefined) group.whitelistedRoutes = config.whitelistedRoutes;
+      if (group.blacklistedRoutes === undefined) group.blacklistedRoutes = config.blacklistedRoutes;
+      if (group.delay === undefined) group.delay = config.delay === undefined ? 200 : config.delay;
+      if (group.timeout === undefined) group.timeout = config.timeout === undefined ? null : config.timeout;
+
       this.requestGroups.push(Object.assign(group, {
-        whitelistedRoutes: config.whitelistedRoutes,
-        blacklistedRoutes: config.blacklistedRoutes,
-        delay: config.delay,
-        timeout: config.timeout,
         isPendingEventSent: false,
         requests: [],
       }));
@@ -97,7 +91,7 @@ export class HttpObserverService {
     return (this.isUrlAllowed(group, url) && !this.isUrlForbidden(group, url));
   }
 
-  addRequest(timestamp: number, url: string) {
+  public addRequest(timestamp: number, url: string) {
     for (const group of this.requestGroups) {
       if (this.isUrlRelevant(group, url)) {
         const request = { timestamp, url } as RequestInterface;
@@ -118,7 +112,7 @@ export class HttpObserverService {
     }
   }
 
-  addResponse(timestamp: number, url: string) {
+  public addResponse(timestamp: number, url: string) {
     for (const group of this.requestGroups) {
       if (this.isUrlRelevant(group, url)) {
         const request = group.requests.find(o => o.timestamp === timestamp && o.url === url);

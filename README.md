@@ -29,10 +29,6 @@ Import the ```HttpObserverModule``` and add it to your imports list. Call the ``
 import { HttpObserverModule } from '@korbiniankuhn/angular-http-observer';
 import { HttpClientModule } from '@angular/common/http';
 
-export function tokenGetter() {
-  return localStorage.getItem('access_token');
-}
-
 @NgModule({
   bootstrap: [AppComponent],
   imports: [
@@ -71,8 +67,8 @@ You can configure the observer with following options. By default a delay of 200
 ``` typescript
 // ...
 HttpObserverModule.forRoot({
-  whitelistedDomains: ['foo.com', /bar.com/],
-  blacklistedDomains: [/localhost/],
+  whitelistedRoutes: ['foo.com', /bar.com/],
+  blacklistedRoutes: [/localhost/],
   delay: 0,
   timeout: 10000
 })
@@ -83,14 +79,14 @@ The observer can have multiple request groups with different settings, to observ
 ``` typescript
 // ...
 HttpObserverModule.forRoot({
-  whitelistedDomains: ['foo.com', /bar.com/],
-  blacklistedDomains: [/localhost/],
+  whitelistedRoutes: ['foo.com', /bar.com/],
+  blacklistedRoutes: [/localhost/],
   delay: 0,
   timeout: 10000,
   requestGroups: [{
     name: 'localhost',
-    whitelistedDomains: [/localhost/],
-    blacklistedDomains: null,
+    whitelistedRoutes: [/localhost/],
+    blacklistedRoutes: null,
     timeout: 2000
   }]
 })
