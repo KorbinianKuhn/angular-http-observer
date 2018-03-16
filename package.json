@@ -1,0 +1,45 @@
+{
+  "name": "@korbiniankuhn/angular-http-observer",
+  "version": "0.0.0",
+  "description": "Track angular http requests and get notified about completion and timeouts.",
+  "main": "index.ts",
+  "scripts": {
+    "build": "ng-packagr -p package.json",
+    "publish:dist": "npm publish dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KorbinianKuhn/angular-http-observer.git"
+  },
+  "keywords": [
+    "angular",
+    "http",
+    "interceptor",
+    "observer",
+    "observe",
+    "timeout",
+    "delay"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^5.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^5.2.9",
+    "@angular/compiler": "^5.2.9",
+    "@angular/compiler-cli": "^5.2.9",
+    "@angular/core": "^5.2.9",
+    "ng-packagr": "^2.2.0",
+    "typescript": "^2.7.2"
+  },
+  "author": "Korbinian Kuhn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KorbinianKuhn/angular-http-observer/issues"
+  },
+  "homepage": "https://github.com/KorbinianKuhn/angular-http-observer#readme",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
+  }
+}
