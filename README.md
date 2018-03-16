@@ -1,9 +1,5 @@
 # angular-http-observer
 
-[![Travis](https://img.shields.io/travis/KorbinianKuhn/angular-http-observer.svg?style=flat-square)](https://travis-ci.org/KorbinianKuhn/angular-http-observer/builds)
-[![Coverage](http://img.shields.io/coveralls/KorbinianKuhn/angular-http-observer.svg?style=flat-square&branch=master)](https://coveralls.io/r/KorbinianKuhn/angular-http-observer)
-[![Known Vulnerabilities](https://snyk.io/test/github/KorbinianKuhn/angular-http-observer/badge.svg?style=flat-square)](https://snyk.io/test/github/KorbinianKuhn/angular-http-observer)
-[![Dependencies](https://img.shields.io/david/KorbinianKuhn/angular-http-observer.svg?style=flat-square)](https://david-dm.org/KorbinianKuhn/angular-http-observer)
 [![Dev Dependencies](https://img.shields.io/david/dev/KorbinianKuhn/angular-http-observer.svg?style=flat-square)](https://david-dm.org/KorbinianKuhn/angular-http-observer)
 [![npm](https://img.shields.io/npm/dt/@korbiniankuhn/angular-http-observer.svg?style=flat-square)](https://www.npmjs.com/package/@korbiniankuhn/angular-http-observer)
 [![npm-version](https://img.shields.io/npm/v/@korbiniankuhn/angular-http-observer.svg?style=flat-square)](https://www.npmjs.com/package/@korbiniankuhn/angular-http-observer)
