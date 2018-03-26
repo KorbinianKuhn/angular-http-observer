@@ -22,7 +22,7 @@ export interface RequestTimeout {
   timeout: number;
 }
 
-export interface TimeoutResponse {
+export interface DelayedResponse {
   requestGroupName: string;
   url: string;
   timeout: number;
@@ -34,7 +34,7 @@ export class HttpObserverService {
   public isPending: EventEmitter<string> = new EventEmitter();
   public hasFinished: EventEmitter<string> = new EventEmitter();
   public timedOutRequest: EventEmitter<RequestTimeout> = new EventEmitter();
-  public timedOutResponse: EventEmitter<TimeoutResponse> = new EventEmitter();
+  public delayedResponse: EventEmitter<DelayedResponse> = new EventEmitter();
 
   private requestGroups: Array<RequestGroupInterface> = [];
 
@@ -122,7 +122,7 @@ export class HttpObserverService {
             this.emitFinished(group);
           }
         } else {
-          this.emitTimedOutResponse(group, timestamp, url);
+          this.emitDelayedResponse(group, timestamp, url);
         }
       }
     }
@@ -156,8 +156,8 @@ export class HttpObserverService {
     });
   }
 
-  private emitTimedOutResponse(group: RequestGroupInterface, timestamp: number, url: string) {
-    this.timedOutResponse.emit({
+  private emitDelayedResponse(group: RequestGroupInterface, timestamp: number, url: string) {
+    this.delayedResponse.emit({
       requestGroupName: group.name,
       url: url,
       timeout: group.timeout,

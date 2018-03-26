@@ -117,7 +117,7 @@ httpObserver.timedOutRequest.subscribe((object) => {
   // { requestGroupName: 'default', url: 'localhost', timeout: 2000 }
 });
 
-httpObserver.timedOutRequest.subscribe((object) => {
+httpObserver.delayedResponse.subscribe((object) => {
   console.log(object);
   // { requestGroupName: 'default', url: 'localhost', timeout: 2000, duration: 3629 }
 });
