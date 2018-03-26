@@ -38,7 +38,7 @@ export class HttpObserverService {
 
   private requestGroups: Array<RequestGroupInterface> = [];
 
-  constructor( @Inject(HTTP_OBSERVER_OPTIONS) config: any) {
+  constructor(@Inject(HTTP_OBSERVER_OPTIONS) config: any) {
     const requestGroups = config.requestGroups ? JSON.parse(JSON.stringify(config.requestGroups)) : [];
 
     requestGroups.push({ name: 'default' });
@@ -132,6 +132,9 @@ export class HttpObserverService {
     if (group.requests.indexOf(request) !== -1) {
       group.requests.splice(group.requests.indexOf(request), 1);
       this.emitTimedOutRequest(group, request);
+      if (group.requests.length === 0 && group.isPendingEventSent) {
+        this.emitFinished(group);
+      }
     }
   }
 
