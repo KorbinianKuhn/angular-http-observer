@@ -21,7 +21,7 @@
     "delay"
   ],
   "peerDependencies": {
-    "@angular/common": "^5.0.0"
+    "@angular/common": "^6.0.1"
   },
   "devDependencies": {
     "@angular/common": "^6.0.1",
