@@ -2,7 +2,7 @@
 
 [![Dev Dependencies](https://img.shields.io/david/dev/KorbinianKuhn/angular-http-observer.svg?style=flat-square)](https://david-dm.org/KorbinianKuhn/angular-http-observer)
 [![npm](https://img.shields.io/npm/dt/@korbiniankuhn/angular-http-observer.svg?style=flat-square)](https://www.npmjs.com/package/@korbiniankuhn/angular-http-observer)
-[![npm-version](https://img.shields.io/npm/v/@korbiniankuhn/angular-http-observer.svg?style=flat-square)](https://www.npmjs.com/package/@korbiniankuhn/angular-http-observer)
+[![npm-version](https://img.shields.io/npm/v/@korbiniankuhn/angular-http-observer.svg?style=flat-square)](https://www.npmjs.com/package/@korbiniankuhn/angular-http-observer) [![Greenkeeper badge](https://badges.greenkeeper.io/KorbinianKuhn/angular-http-observer.svg)](https://greenkeeper.io/)
 ![license](https://img.shields.io/github/license/KorbinianKuhn/angular-http-observer.svg?style=flat-square)
 
 Small utility to track angular http requests to get notified on completion and timeouts. Example use case is a loading bar that appears while requests are pending. Easy configurable debounce delay, request timeout and url blacklisting or whitelisting.
